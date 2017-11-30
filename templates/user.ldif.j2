@@ -1,0 +1,13 @@
+dn: uid={{ldap_user_id}},ou=People,{{dc_string}}
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: {{ldap_user_id}}
+uid: {{ldap_user_id}}
+uidNumber: 10000
+gidNumber: 5000
+homeDirectory: /home/{{ldap_user_id}}
+loginShell: /bin/bash
+gecos: {{ldap_user_id}} [People (at) {{dc_main}}]
+userPassword: {{ldap_user_password}}

@@ -1,0 +1,9 @@
+---
+
+dc_main: example
+dc_string: dc=example,dc=com
+
+ldap_admin_id: ldapadm
+ldap_admin_password: password
+ldap_user_id: ldapuser
+ldap_user_password: password

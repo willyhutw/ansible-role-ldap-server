@@ -1,0 +1,23 @@
+dn: {{dc_string}}
+dc: {{dc_main}}
+objectClass: top
+objectClass: domain
+
+dn: cn={{ldap_admin_id}},{{dc_string}}
+cn: {{ldap_admin_id}}
+objectClass: organizationalRole
+description: LDAP Manager
+
+dn: ou=People,{{dc_string}}
+ou: People
+objectClass: organizationalUnit
+
+dn: ou=Groups,{{dc_string}}
+ou: Groups
+objectClass: organizationalUnit
+
+dn: cn=ldapusers,ou=Groups,{{dc_string}}
+objectClass: posixGroup
+cn: ldapusers
+gidNumber: 5000
+
