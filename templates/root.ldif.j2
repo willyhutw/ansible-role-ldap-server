@@ -1,3 +1,19 @@
+{% if ansible_os_family == "Debian" %}
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+replace: olcSuffix
+olcSuffix: {{dc_string}}
+
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: cn={{ldap_admin_id}},{{dc_string}}
+
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+replace: olcRootPW
+olcRootPW: {{slappasswd.stdout}}
+{% else %}
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: olcSuffix
@@ -12,4 +28,5 @@ dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: olcRootPW
 olcRootPW: {{slappasswd.stdout}}
+{% endif %}
 

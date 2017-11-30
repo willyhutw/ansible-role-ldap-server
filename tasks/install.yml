@@ -1,0 +1,23 @@
+---
+
+- name: install openldap server
+  apt:
+    name: "{{item}}"
+    state: present
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+  with_items:
+    - slapd
+    - ldap-utils
+  when: ansible_os_family == "Debian"
+
+
+- name: install openldap server
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - openldap-servers
+    - openldap-clients
+  when: ansible_os_family == "RedHat"
+
